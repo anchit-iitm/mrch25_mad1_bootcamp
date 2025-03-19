@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>jinja for</h1>
+    <a href="/">index</a>
+    <ul>
+        {% for row in data %}
+        <li><a href="/page2/{{ row.user_id }}">{{ row.name }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

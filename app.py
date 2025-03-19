@@ -29,7 +29,24 @@ def page01():
         db.session.add(new_user)
         db.session.commit()
         return redirect(url_for('page01'))
+    
+@app.route('/page2/<int:id>')
+def page02(id):
+    data = user.query.filter_by(user_id=id).first()
+    print(data)
+    if data:
+        backend_name = data.name
+        ID = data.user_id
+    else:
+        backend_name = 'No entry found'
+        ID = 'No entry found'
+    return render_template('page2.html', frontend_name=backend_name, id=ID)
 
+@app.route('/page3')
+def page03():
+    all_data = user.query.all()
+    print(all_data)
+    return render_template('page3.html', data=all_data)
 
 if __name__ == '__main__':
     app.run(port=1508)
