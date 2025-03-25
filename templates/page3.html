@@ -10,7 +10,9 @@
     <a href="/">index</a>
     <ul>
         {% for row in data %}
+        {% if row.user_id == 1 %}
         <li><a href="/page2/{{ row.user_id }}">{{ row.name }}</a></li>
+        {% endif %}
         {% endfor %}
     </ul>
 </body>
